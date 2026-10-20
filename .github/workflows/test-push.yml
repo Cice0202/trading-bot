@@ -1,0 +1,12 @@
+name: Test-Push
+on:
+  workflow_dispatch:
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test-Nachricht senden
+        run: |
+          curl -H "Title: Trading-Bot" -H "Tags: rocket" \
+            -d "Test erfolgreich! Dein Bot kann dich erreichen." \
+            https://ntfy.sh/${{ secrets.NTFY_TOPIC }}
